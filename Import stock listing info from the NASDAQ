@@ -1,0 +1,95 @@
+...question....
+In this video, you learned how to use the pd.read_csv() function to import data from a csv file containing companies
+listed on the AmEx Stock Exchange into a pandas DataFrame. You can apply this same knowledge to 
+import listing information in csv files from other stock exchanges.
+The next step is to ensure that the contents of the DataFrame accurately reflect the meaning of
+your data. Two essential methods to understand your data are .head(), which displays the first five rows
+of your data by default, and .info(), which summarizes elements of a DataFrame such as content, data types, and missing values.
+In this exercise, you will read the file nasdaq-listings.csv with data on companies listed on the NASDAQ 
+and then diagnose issues with the imported data. You will fix these issues in the next exercise.
+......answer....
+# Import pandas library
+import pandas as pd 
+
+# Import the data
+nasdaq = pd.read_csv('nasdaq-listings.csv')
+
+# Display first 10 rows
+print(nasdaq.head(10))
+
+# Inspect nasdaq
+nasdaq.info()
+.................answer.........
+
+# Import pandas library
+import pandas as pd
+
+# Import the data
+nasdaq = pd.read_csv('nasdaq-listings.csv')
+
+# Display first 10 rows
+print(nasdaq.head(10))
+
+# Inspect nasdaq
+nasdaq.info()
+
+......output.....
+ # Import pandas library
+        import pandas as pd
+        
+        # Import the data
+        nasdaq = pd.read_csv('nasdaq-listings.csv')
+        
+        # Display first 10 rows
+        print(nasdaq.head(10))
+        
+        # Inspect nasdaq
+        nasdaq.info()
+  Stock Symbol           Company Name  Last Sale  Market Capitalization  \
+0         AAPL             Apple Inc.     141.05           7.400000e+11   
+1        GOOGL          Alphabet Inc.     840.18           5.810000e+11   
+2         GOOG          Alphabet Inc.     823.56           5.690000e+11   
+3         MSFT  Microsoft Corporation      64.95           5.020000e+11   
+4         AMZN       Amazon.com, Inc.     884.67           4.220000e+11   
+5           FB         Facebook, Inc.     139.39           4.030000e+11   
+6        CMCSA    Comcast Corporation      37.14           1.760000e+11   
+7         INTC      Intel Corporation      35.25           1.660000e+11   
+8         CSCO    Cisco Systems, Inc.      32.42           1.620000e+11   
+9         AMGN             Amgen Inc.     161.61           1.190000e+11   
+
+  IPO Year             Sector  \
+0     1980         Technology   
+1      NAN         Technology   
+2     2004         Technology   
+3     1986         Technology   
+4     1997  Consumer Services   
+5     2012         Technology   
+6      NAN  Consumer Services   
+7      NAN         Technology   
+8     1990         Technology   
+9     1983        Health Care   
+
+                                            Industry Last Update  
+0                             Computer Manufacturing     4/26/17  
+1    Computer Software: Programming, Data Processing     4/24/17  
+2    Computer Software: Programming, Data Processing     4/23/17  
+3            Computer Software: Prepackaged Software     4/26/17  
+4                     Catalog/Specialty Distribution     4/24/17  
+5    Computer Software: Programming, Data Processing     4/26/17  
+6                                Television Services     4/26/17  
+7                                     Semiconductors     4/23/17  
+8                  Computer Communications Equipment     4/23/17  
+9  Biotechnology: Biological Products (No Diagnos...     4/24/17  
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1115 entries, 0 to 1114
+Data columns (total 8 columns):
+Stock Symbol             1115 non-null object
+Company Name             1115 non-null object
+Last Sale                1115 non-null float64
+Market Capitalization    1115 non-null float64
+IPO Year                 1115 non-null object
+Sector                   1115 non-null object
+Industry                 1115 non-null object
+Last Update              1115 non-null object
+dtypes: float64(2), object(6)
+memory usage: 69.8+ KB
