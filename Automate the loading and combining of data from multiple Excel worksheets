@@ -1,0 +1,89 @@
+....question....
+You are now ready to automate the import process of listing information from
+all three exchanges in the Excel file listings.xlsx by implementing a for loop. Let's look at what you'll do:
+1.Retrieve the sheet names of a pd.ExcelFile() object using its sheet_names attribute.
+2.Create an empty list.
+3.Write a for loop that iterates through these sheet names to read the data from the corresponding sheet name 
+in the Excel file into a variable. Add a reference column, if desired. Append the contents of this variable to
+the list with each iteration.
+4.Concatenate the DataFrames in the list.
+As always, refer to the previous exercises in this chapter or the pandas documentation if you need any help.
+
+...answer...
+# Create the pd.ExcelFile() object
+xls = ___
+
+# Extract the sheet names from xls
+exchanges = ___.___
+
+# Create an empty list: listings
+
+
+# Import the data
+for exchange in exchanges:
+    listing = pd.___(___, sheetname=___, na_values='n/a')
+    listing['Exchange'] = ___
+    listings.___(___)
+
+# Concatenate the listings: listing_data
+listing_data = pd.___(___)
+
+# Inspect the results
+listing_data.info()
+
+........answer....
+# Create the pd.ExcelFile() object
+xls = pd.ExcelFile('listings.xlsx')
+
+# Extract the sheet names from xls
+exchanges = xls.sheet_names
+
+# Create an empty list: listings
+listings = []
+
+# Import the data
+for exchange in exchanges:
+    listing = pd.read_excel(xls, sheetname=exchange, na_values='n/a')
+    listing['Exchange'] = exchange
+    listings.append(listing)
+
+# Concatenate the listings: listing_data
+listing_data = pd.concat(listings)
+
+# Inspect the results
+listing_data.info()
+
+............output.............
+In [1]: # Create the pd.ExcelFile() object
+        xls = pd.ExcelFile('listings.xlsx')
+        
+        # Extract the sheet names from xls
+        exchanges = xls.sheet_names
+        
+        # Create an empty list: listings
+        listings = []
+        
+        # Import the data
+        for exchange in exchanges:
+            listing = pd.read_excel(xls, sheetname=exchange, na_values='n/a')
+            listing['Exchange'] = exchange
+            listings.append(listing)
+        
+        # Concatenate the listings: listing_data
+        listing_data = pd.concat(listings)
+        
+        # Inspect the results
+        listing_data.info()
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 6674 entries, 0 to 3146
+Data columns (total 8 columns):
+Stock Symbol             6674 non-null object
+Company Name             6674 non-null object
+Last Sale                6590 non-null float64
+Market Capitalization    6674 non-null float64
+IPO Year                 2852 non-null float64
+Sector                   5182 non-null object
+Industry                 5182 non-null object
+Exchange                 6674 non-null object
+dtypes: float64(3), object(5)
+memory usage: 469.3+ KB
