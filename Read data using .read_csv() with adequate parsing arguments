@@ -1,0 +1,76 @@
+...question....
+You have successfully identified the issues you must address when importing the given csv file.
+In this exercise, you will once again load the NASDAQ data into a pandas DataFrame, but with a more robust function.
+
+...instructions.....
+
+pandas has been imported as pd.
+Read the file nasdaq-listings.csv into nasdaq with pd.read_csv(), adding the 
+arguments na_values and parse_dates equal to the appropriate values. You should use 
+'NAN' for missing values, and parse dates in the Last Update column. 
+Display and inspect the result using .head() and .info() to verify that the data has been imported correctly.
+
+
+...answer...
+# Import the data
+nasdaq = pd.___('nasdaq-listings.csv', ___='NAN', ___=['Last Update'])
+
+# Display the head of the data
+print(nasdaq.___())
+
+# Inspect the data
+nasdaq.___()
+.....answer....
+# Import the data
+nasdaq = pd.read_csv('nasdaq-listings.csv', na_values='NAN', parse_dates=['Last Update'])
+
+# Display the head of the data
+print(nasdaq.head())
+
+# Inspect the data
+nasdaq.info()
+
+
+......output.......
+
+In [1]: # Import the data
+        nasdaq = pd.read_csv('nasdaq-listings.csv', na_values='NAN', parse_dates=['Last Update'])
+        
+        # Display the head of the data
+        print(nasdaq.head())
+        
+        # Inspect the data
+        nasdaq.info()
+  Stock Symbol           Company Name  Last Sale  Market Capitalization  \
+0         AAPL             Apple Inc.     141.05           7.400000e+11   
+1        GOOGL          Alphabet Inc.     840.18           5.810000e+11   
+2         GOOG          Alphabet Inc.     823.56           5.690000e+11   
+3         MSFT  Microsoft Corporation      64.95           5.020000e+11   
+4         AMZN       Amazon.com, Inc.     884.67           4.220000e+11   
+
+   IPO Year             Sector  \
+0    1980.0         Technology   
+1       NaN         Technology   
+2    2004.0         Technology   
+3    1986.0         Technology   
+4    1997.0  Consumer Services   
+
+                                          Industry Last Update  
+0                           Computer Manufacturing  2017-04-26  
+1  Computer Software: Programming, Data Processing  2017-04-24  
+2  Computer Software: Programming, Data Processing  2017-04-23  
+3          Computer Software: Prepackaged Software  2017-04-26  
+4                   Catalog/Specialty Distribution  2017-04-24  
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1115 entries, 0 to 1114
+Data columns (total 8 columns):
+Stock Symbol             1115 non-null object
+Company Name             1115 non-null object
+Last Sale                1115 non-null float64
+Market Capitalization    1115 non-null float64
+IPO Year                 593 non-null float64
+Sector                   1036 non-null object
+Industry                 1036 non-null object
+Last Update              1115 non-null datetime64[ns]
+dtypes: datetime64[ns](1), float64(3), object(4)
+memory usage: 69.8+ KB
