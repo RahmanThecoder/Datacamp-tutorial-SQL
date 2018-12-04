@@ -1,0 +1,44 @@
+# Import the data
+nyse = pd.read_excel('listings.xlsx',sheetname='nyse',na_values=None )
+
+# Display the head of the data
+print(nyse.head())
+
+# Inspect the data
+nyse.info()
+
+....output showed..>>>>>
+
+In [7]: # Import the data
+        nyse = pd.read_excel('listings.xlsx',sheetname='nyse',na_values=None )
+        
+        # Display the head of the data
+        print(nyse.head())
+        
+        # Inspect the data
+        nyse.info()
+  Stock Symbol            Company Name Last Sale  Market Capitalization  \
+0          DDD  3D Systems Corporation     14.48           1.647165e+09   
+1          MMM              3M Company    188.65           1.127366e+11   
+2         WBAI         500.com Limited     13.96           5.793129e+08   
+3         WUBA             58.com Inc.     36.11           5.225238e+09   
+4          AHC   A.H. Belo Corporation       6.2           1.347351e+08   
+
+  IPO Year             Sector                                         Industry  
+0      n/a         Technology          Computer Software: Prepackaged Software  
+1      n/a        Health Care                       Medical/Dental Instruments  
+2     2013  Consumer Services            Services-Misc. Amusement & Recreation  
+3     2013         Technology  Computer Software: Programming, Data Processing  
+4      n/a  Consumer Services                             Newspapers/Magazines  
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3147 entries, 0 to 3146
+Data columns (total 7 columns):
+Stock Symbol             3147 non-null object
+Company Name             3147 non-null object
+Last Sale                3147 non-null object
+Market Capitalization    3147 non-null float64
+IPO Year                 3147 non-null object
+Sector                   3147 non-null object
+Industry                 3147 non-null object
+dtypes: float64(1), object(6)
+memory usage: 172.2+ KB
