@@ -42,3 +42,54 @@ Sector                   3147 non-null object
 Industry                 3147 non-null object
 dtypes: float64(1), object(6)
 memory usage: 172.2+ KB
+.....correction some.....
+
+# Import the data
+nyse = pd.read_excel('listings.xlsx',sheetname='nyse',na_values='n/a' )
+
+# Display the head of the data
+print(nyse.head())
+
+# Inspect the data
+nyse.info()
+....output..showed..>>>
+In [8]: # Import the data
+        nyse = pd.read_excel('listings.xlsx',sheetname='nyse',na_values='n/a' )
+        
+        # Display the head of the data
+        print(nyse.head())
+        
+        # Inspect the data
+        nyse.info()
+  Stock Symbol            Company Name  Last Sale  Market Capitalization  \
+0          DDD  3D Systems Corporation      14.48           1.647165e+09   
+1          MMM              3M Company     188.65           1.127366e+11   
+2         WBAI         500.com Limited      13.96           5.793129e+08   
+3         WUBA             58.com Inc.      36.11           5.225238e+09   
+4          AHC   A.H. Belo Corporation       6.20           1.347351e+08   
+
+   IPO Year             Sector  \
+0       NaN         Technology   
+1       NaN        Health Care   
+2    2013.0  Consumer Services   
+3    2013.0         Technology   
+4       NaN  Consumer Services   
+
+                                          Industry  
+0          Computer Software: Prepackaged Software  
+1                       Medical/Dental Instruments  
+2            Services-Misc. Amusement & Recreation  
+3  Computer Software: Programming, Data Processing  
+4                             Newspapers/Magazines  
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3147 entries, 0 to 3146
+Data columns (total 7 columns):
+Stock Symbol             3147 non-null object
+Company Name             3147 non-null object
+Last Sale                3079 non-null float64
+Market Capitalization    3147 non-null float64
+IPO Year                 1361 non-null float64
+Sector                   2177 non-null object
+Industry                 2177 non-null object
+dtypes: float64(3), object(4)
+memory usage: 172.2+ KB
